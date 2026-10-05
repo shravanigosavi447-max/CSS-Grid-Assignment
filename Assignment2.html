@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Grid Assignment 2</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 0 50px 0;
+        }
+
+        h2 {
+            margin: 0 0 20px 0;
+            font-size: 24px;
+        }
+
+        /*
+        IMPORTANT:
+        Each task is kept in normal document flow.
+        This prevents one task from overlapping another.
+        */
+
+        .task {
+            width: 100%;
+            clear: both;
+            overflow: hidden;
+            margin-bottom: 90px;
+        }
+
+        .task-title {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+
+        /* =====================================================
+           TASK 1 - FRUIT GRID
+           ===================================================== */
+
+        .fruit-grid {
+
+            width: 650px;
+            height: 520px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            grid-template-rows:
+                repeat(3, 1fr);
+
+            gap: 8px;
+
+            overflow: hidden;
+        }
+
+        .fruit-grid img {
+
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            min-width: 0;
+            min-height: 0;
+        }
+
+
+        /* Blueberries */
+
+        .fruit1 {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+
+        /* Strawberries */
+
+        .fruit2 {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+
+        /* Orange */
+
+        .fruit3 {
+            grid-column: 1 / 3;
+            grid-row: 2;
+        }
+
+
+        /* Watermelon */
+
+        .fruit4 {
+            grid-column: 3 / 5;
+            grid-row: 1 / 3;
+        }
+
+
+        /* Papaya */
+
+        .fruit5 {
+            grid-column: 1 / 3;
+            grid-row: 3;
+        }
+
+
+        /* Pineapple */
+
+        .fruit6 {
+            grid-column: 3 / 5;
+            grid-row: 3;
+        }
+
+
+
+        /* =====================================================
+           TASK 2 - IMAGE GRID
+           ===================================================== */
+
+        .second-grid {
+
+            width: 720px;
+            height: 360px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            grid-template-rows:
+                repeat(3, 1fr);
+
+            gap: 8px;
+
+            overflow: hidden;
+        }
+
+        .second-box {
+
+            position: relative;
+
+            overflow: hidden;
+
+            min-width: 0;
+            min-height: 0;
+
+            background-color: black;
+        }
+
+        .second-box img {
+
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+        }
+
+
+        /* ---------------------------------------------
+           TOP LEFT
+           --------------------------------------------- */
+
+        .second1 {
+
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+
+        /* ---------------------------------------------
+           TOP RIGHT - TWO COLUMNS
+           --------------------------------------------- */
+
+        .second2 {
+
+            grid-column: 2 / 4;
+            grid-row: 1;
+        }
+
+
+        /* ---------------------------------------------
+           MIDDLE LEFT - TWO COLUMNS
+           --------------------------------------------- */
+
+        .second3 {
+
+            grid-column: 1 / 3;
+            grid-row: 2;
+        }
+
+
+        /* ---------------------------------------------
+           MIDDLE RIGHT
+           --------------------------------------------- */
+
+        .second4 {
+
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+
+        /* ---------------------------------------------
+           BOTTOM LEFT
+           --------------------------------------------- */
+
+        .second5 {
+
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+
+        /* ---------------------------------------------
+           BOTTOM MIDDLE
+           --------------------------------------------- */
+
+        .second6 {
+
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+
+        /* ---------------------------------------------
+           BOTTOM RIGHT
+           --------------------------------------------- */
+
+        .second7 {
+
+            grid-column: 3;
+            grid-row: 3;
+        }
+
+
+        /* Text on Task 2 images */
+
+        .second-box span {
+
+            position: absolute;
+
+            top: 12px;
+            left: 15px;
+
+            color: white;
+
+            font-size: 14px;
+
+            z-index: 2;
+
+            text-shadow:
+                1px 1px 3px black;
+        }
+
+        .read {
+
+            position: absolute;
+
+            right: 12px;
+            bottom: 10px;
+
+            color: white;
+
+            font-size: 9px;
+
+            z-index: 2;
+
+            text-shadow:
+                1px 1px 3px black;
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 21px;
+            }
+
+
+            /* TASK 1 */
+
+            .fruit-grid {
+
+                width: 100%;
+                max-width: 650px;
+
+                height: 480px;
+            }
+
+
+            /* TASK 2 */
+
+            .second-grid {
+
+                width: 100%;
+                max-width: 720px;
+
+                height: 340px;
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .fruit-grid {
+
+                height: 400px;
+
+                gap: 5px;
+            }
+
+            .second-grid {
+
+                height: 300px;
+
+                gap: 5px;
+            }
+
+            .second-box span {
+
+                font-size: 10px;
+
+                top: 8px;
+                left: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <h1>CSS Grid Assignment 2</h1>
+
+
+
+    <!-- =====================================================
+         TASK 1
+         ===================================================== -->
+
+    <section class="task">
+
+        <h2 class="task-title">
+            Task 1 - Fruit Image Grid
+        </h2>
+
+
+        <div class="fruit-grid">
+
+
+            <!-- BLUEBERRIES -->
+
+            <img
+                class="fruit1"
+                src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?auto=format&fit=crop&w=500&q=80"
+                alt="Blueberries">
+
+
+            <!-- STRAWBERRIES -->
+
+            <img
+                class="fruit2"
+                src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=500&q=80"
+                alt="Strawberries">
+
+
+            <!-- ORANGE -->
+
+            <img
+                class="fruit3"
+                src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=700&q=80"
+                alt="Orange">
+
+
+            <!-- WATERMELON -->
+
+            <img
+                class="fruit4"
+                src="https://images.unsplash.com/photo-1563114773-84221bd62daa?auto=format&fit=crop&w=700&q=80"
+                alt="Watermelon">
+
+
+            <!-- PAPAYA -->
+
+            <img
+                class="fruit5"
+                src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?auto=format&fit=crop&w=700&q=80"
+                alt="Papaya">
+
+
+            <!-- PINEAPPLE -->
+
+            <img
+                class="fruit6"
+                src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=700&q=80"
+                alt="Pineapple">
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TASK 2
+         ===================================================== -->
+
+    <section class="task">
+
+        <h2 class="task-title">
+            Task 2 - Image Grid
+        </h2>
+
+
+        <div class="second-grid">
+
+
+            <!-- TOP LEFT -->
+
+            <div class="second-box second1">
+
+                <img
+                    src="https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=500&q=80"
+                    alt="Blue flowers">
+
+                <span>
+                    The winter of my discontent
+                </span>
+
+                <div class="read">
+                    READ POST
+                </div>
+
+            </div>
+
+
+
+            <!-- TOP RIGHT -->
+
+            <div class="second-box second2">
+
+                <img
+                    src="https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?auto=format&fit=crop&w=1000&q=80"
+                    alt="City">
+
+                <span>
+                    Instagram is toxic but I keep posting
+                </span>
+
+                <div class="read">
+                    READ POST
+                </div>
+
+            </div>
+
+
+
+            <!-- MIDDLE LEFT -->
+
+            <div class="second-box second3">
+
+                <img
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80"
+                    alt="Ocean">
+
+                <span>
+                    Throwing my phone into the ocean
+                </span>
+
+                <div class="read">
+                    READ POST
+                </div>
+
+            </div>
+
+
+
+            <!-- MIDDLE RIGHT -->
+
+            <div class="second-box second4">
+
+                <img
+                    src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=500&q=80"
+                    alt="Building">
+
+                <span>
+                    I'm never leaving my room
+                </span>
+
+                <div class="read">
+                    READ POST
+                </div>
+
+            </div>
+
+
+
+            <!-- BOTTOM LEFT -->
+
+            <div class="second-box second5">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80"
+                    alt="Horizon">
+
+                <span>
+                    Staring at the horizon thinking
+                </span>
+
+            </div>
+
+
+
+            <!-- BOTTOM MIDDLE -->
+
+            <div class="second-box second6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80"
+                    alt="Water">
+
+                <span>
+                    This is water
+                </span>
+
+            </div>
+
+
+
+            <!-- BOTTOM RIGHT -->
+
+            <div class="second-box second7">
+
+                <img
+                    src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=500&q=80"
+                    alt="Food">
+
+                <span>
+                    Table for one please
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>
